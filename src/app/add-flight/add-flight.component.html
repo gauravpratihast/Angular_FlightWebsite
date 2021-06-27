@@ -1,0 +1,38 @@
+<div class="add-flight">
+    <div class="container pt-3" *ngFor="let alert of alerts">
+        <div class="alert mx-auto alert-success" (close)="closeAlert(alert)">{{ alert.message }}</div>
+    </div>
+    <mat-card>
+        <mat-card-title class="text-center my-5">
+            Add New Flight 
+        </mat-card-title>
+        <mat-card-content class="my-3">
+            <form (ngSubmit)="onSubmit(mgForm)"  #mgForm='ngForm' class="text-center">
+                <mat-form-field class="mb-3">
+                    <input type="text" matInput placeholder="From Mumbai To" required name='flight_to' ngModel #flight_to='ngModel'>
+                    <mat-error *ngIf='flight_to.invalid'>Destination is required</mat-error>
+                    <mat-icon matSuffix>flight</mat-icon>
+                </mat-form-field>
+                <br>
+                <div class="imagediv text-center mb-3">
+                    <img *ngIf='showingImage' src="{{selectedImage}}" alt="Image Not Loaded">
+                </div>
+                <div class="mb-3 imagedivclass">
+                    <input class="imageInput text-center" type="file" (change)='onFileSelected($event)' required name='image' ngModel #image='ngModel'>
+                </div>
+                <mat-form-field class="mb-3">
+                    <input type="text" matInput placeholder="Flight Fare" required name='flight_fare' ngModel #flight_fare='ngModel'>
+                    <mat-error *ngIf='flight_fare.invalid'>Price is required</mat-error>
+                    <mat-icon matSuffix>attach_money</mat-icon>
+                </mat-form-field>
+                <div class="button text-center">
+                    <button mat-raised-button color="accent" class="submit-button" [disabled]="!mgForm.valid">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+

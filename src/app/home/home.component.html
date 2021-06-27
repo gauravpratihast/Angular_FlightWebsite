@@ -1,0 +1,151 @@
+<section class="banner d-flex justify-content-center align-items-center flex-column">
+    <div class="selectJourney text-center">
+        <div class="form-check form-check-inline" *ngFor='let item of radioList'>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio + {{item.id}}"
+                value="option + {{item.id}}" checked>
+            <label class="form-check-label" for="inlineRadio + {{item.id}}">{{item.text}}</label>
+        </div>
+    </div>
+    <div class="journeyDetails">
+        <form class="inputs d-flex align-items-center justify-content-center">
+            <div class="col-sm-2" *ngFor='let item of inputList'>
+                <label for="specificSizeInputName">{{item.content}}</label>
+                <div class="input-group">
+                    <input type="{{item.inputType}}" class="form-control" placeholder="{{item.placeholder}}">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <label for="specificSizeSelect">Class & Cabin</label>
+                <select class="form-select" id="specificSizeSelect">
+                    <option selected>Choose...</option>
+                    <option *ngFor='let item of selectListOptions' value="{{item.id}}">{{item.text}}</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="button mt-4">
+        <button class="btn">Search</button>
+    </div>
+</section>
+<div class="conatiner expansions mx-5">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12 checkIn">
+            <mat-expansion-panel class="my-4 text-center">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="me-2">check</mat-icon>
+                        Check In
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Log in for check-in</p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="First Name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Last Name" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Booking code or ticket no">
+                </mat-form-field>
+                <div class="button mb-3">
+                    <button mat-raised-button color='primary' routerLink='login'>Check In</button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 checkIn">
+            <mat-expansion-panel class="my-4 text-center">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="me-2">check_circle</mat-icon>
+                        Flight Status
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Log in for checking flight status</p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Your Name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Flight Number" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Flight Date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="button mb-3">
+                    <button mat-raised-button color='primary' routerLink='login'>Find</button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 checkIn">
+            <mat-expansion-panel class="my-4 text-center">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="me-2">flight_takeoff</mat-icon>
+                        My Bookings
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Log in for seeing your bookings</p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="First Name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Last Name" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Booking code">
+                </mat-form-field>
+                <div class="button mb-3">
+                    <button mat-raised-button color='primary' routerLink='login'>My Bookings</button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 checkIn">
+            <mat-expansion-panel class="my-4">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="me-2">folder</mat-icon>
+                        Miles & More
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Log in with your Miles & More Login Data</p>
+                
+                <div class="button mb-3">
+                    <button mat-raised-button color='primary' routerLink='login'>Log In</button>
+                </div>
+                <p>Your benefits with Miles & More:</p>
+                <p>Earn miles, save your preferences and display bookings at a glance.</p>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</div>
+<div class="serviceArea">
+    <div class="container padding">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 text-center py-5 my-4" *ngFor='let item of serviceList;last as i'
+                [ngClass]=" i ? 'col-sm-12': 'col-sm-6' ">
+                <img src="{{item.icon}}" alt="not loaded">
+                <h3 class="text-uppercase">
+                    {{item.heading}}
+                </h3>
+                <p class="text-capitalize px-2 font-weight-bold">
+                    {{item.text}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="map text-center mt-2 py-2">
+    <h1 class="py-3">Travel Across World With Us</h1>
+    <img class="mt-2 mb-5" src="../../assets/images/worldMap.jpg" alt="#">
+</section>
+<section class="subscribe d-flex justify-content-center align-items-center flex-column py-5">
+    <h2>Subscribe to Our FREE VIP Email Alerts</h2>
+    <p>Sign up today and never miss another deal again!</p>
+    <div class="input-group mt-3">
+        <input type="text" class="form-control" placeholder="Enter Your Email" aria-label="Enter Your Email"
+            aria-describedby="button-addon2">
+        <button class="btn" type="button" id="button-addon2">SIGN UP</button>
+    </div>
+</section>

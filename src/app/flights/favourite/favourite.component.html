@@ -1,0 +1,28 @@
+<div class="container my-5">
+    <h1 class="text-center">Flight From Mumbai To {{detailArray[0].city}} For &#x20B9; {{detailArray[0].price}}</h1>
+    <div class="flightimage text-center my-4">
+        <img src="{{detailArray[0].imageLink}}" alt="Image Not Loaded">
+    </div>
+    <div class="details text-center my-3">
+        <mat-form-field class="mx-2">
+            <mat-label>From</mat-label>
+            <input matInput value="Mumbai">
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>To</mat-label>
+            <input matInput value="{{detailArray[0].city}}">
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>Travel Class</mat-label>
+            <input matInput value="Economy Class">
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>Trip Duration</mat-label>
+            <input matInput value="7 days">
+        </mat-form-field>
+    </div>
+    <div class="button text-center mb-5">
+        <button mat-raised-button color='accent'>Book Now</button>
+    </div>
+
+</div>

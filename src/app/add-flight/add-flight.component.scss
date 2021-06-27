@@ -1,0 +1,25 @@
+.add-flight{
+    mat-card{
+        border: .1rem solid #E91E63;
+        mat-card-title{
+            color: #303F9F;
+        }
+        mat-card-content{
+            input{
+                width: 30rem;
+            }
+            mat-form-field{
+                width: 25rem;
+            }
+            .imagediv{
+                img{
+                    height: 7rem;
+                    width: 8rem;
+                }
+            }
+            .imagedivclass{
+                margin-left: 6rem;
+            }
+        }
+    }
+}

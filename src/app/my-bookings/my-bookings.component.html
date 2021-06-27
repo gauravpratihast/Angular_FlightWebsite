@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="text-center mb-5">Your Saved Flights</h1>
+    <table class="table table-bordered table-responsive table-hover text-center">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Image</th>
+                <th>City</th>
+                <th>Price</th>
+                <th>Remove Flight</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of flightList;let q = index">
+                <td>{{q+1}}</td>
+                <td><img src="{{item.imageLink}}"></td>
+                <td>Mumbai <mat-icon class="mt-2 mx-2 rotate" color='accent'>flight</mat-icon> {{item.city}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                   <button class="btn btn-danger" (click)="deleteRow(item.city)"><mat-icon>delete_forever</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

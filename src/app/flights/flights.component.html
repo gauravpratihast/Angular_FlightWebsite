@@ -1,0 +1,118 @@
+<div class="container my-5">
+    <div class="container pt-3 text-center" *ngFor="let alert of alerts">
+        <div class="alert mx-auto" [ngClass]="alert.type=='success' ? 'alert-success': 'alert-danger' "
+            (close)="closeAlert(alert)">{{ alert.message }}</div>
+    </div>
+    <div class="container pt-3 text-center" *ngFor="let alert of delete">
+        <div class="alert mx-auto" [ngClass]="alert.type=='success' ? 'alert-success': 'alert-danger' "
+            (close)="closeDelete(alert)">{{ alert.message }}</div>
+    </div>
+    <h1 class="text-center">Flight Offers From Mumbai</h1>
+
+    <div class="searching my-4">
+        <mat-form-field>
+            <mat-label>Sort With</mat-label>
+            <mat-select [(ngModel)]='sortbyParam'>
+                <mat-option value='price' selected>Price</mat-option>
+                <mat-option value='city'>Name</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="mx-4">
+            <mat-label>Sort By</mat-label>
+            <mat-select [(ngModel)]='sortbyOrder'>
+                <mat-option value='asc' selected>Low to High</mat-option>
+                <mat-option value='desc'>High to Low</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="inputSearch text-right">
+            <input type="text" matInput placeholder="Search Flight For" [(ngModel)]='nameSearch'>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="addButton">
+        <button mat-raised-button (click)='openDialog()'>Add new Flight</button>
+    </div>
+
+    <mat-tab-group mat-align-tabs="center" #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
+        <mat-tab label='Recommendations'>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12 d-flex my-3"
+                    *ngFor="let items of RecommendationList | searching: nameSearch | sort: [sortbyParam, sortbyOrder];last as i"
+                    [ngClass]=" i ? 'col-sm-12': 'col-sm-6' ">
+                    <div class="image">
+                        <img routerLink="login" src="{{items.imageLink}}" alt="#">
+                    </div>
+                    <div class="flight d-flex align-items-center justify-content-center">
+                        <mat-icon color='accent'>flight</mat-icon>
+                    </div>
+                    <div class="details my-3 mx-1">
+                        <p class="title">{{items.city}}</p>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="for">for</span> &#x20B9; {{items.price}}</p>
+                        </div>
+                        <div class="button">
+                            <a [routerLink]="['recommendation', items.id]"><button class="me-2" color='primary' mat-raised-button (click)='showDeatil(items.id)'>Details</button></a>
+                            <button class="me-2" color='accent' mat-raised-button (click)='AddToMyBookings(items)'>Save</button>
+                            <button color='warn' mat-raised-button (click)='Delete(items)' >Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Best Sellers">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12 d-flex my-3"
+                    *ngFor="let items of BestSellerList | searching: nameSearch | sort: [sortbyParam, sortbyOrder];last as i"
+                    [ngClass]=" i ? 'col-sm-12': 'col-sm-6' ">
+                    <div class="image">
+                        <img routerLink="login" src="{{items.imageLink}}" alt="#">
+                    </div>
+                    <div class="flight d-flex align-items-center justify-content-center">
+                        <mat-icon color='accent'>flight</mat-icon>
+                    </div>
+                    <div class="details my-3 mx-1">
+                        <p class="title">{{items.city}}</p>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="for">for</span> &#x20B9; {{items.price}}</p>
+                        </div>
+                        <div class="button">
+                            <a [routerLink]="['bestSeller', items.id]"><button class="me-2" color='primary' mat-raised-button (click)='showDeatil(items.id)'>Details</button></a>
+                            <button class="me-2" color='accent' mat-raised-button (click)='AddToMyBookings(items)'>Save</button>
+                            <button color='warn' mat-raised-button (click)='Delete(items)' >Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Favourites">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12 d-flex my-3"
+                    *ngFor="let items of FavouritesList | searching: nameSearch | sort: [sortbyParam, sortbyOrder];last as i"
+                    [ngClass]=" i ? 'col-sm-12': 'col-sm-6' ">
+                    <div class="image">
+                        <img routerLink="login" src="{{items.imageLink}}" alt="#">
+                    </div>
+                    <div class="flight d-flex align-items-center justify-content-center">
+                        <mat-icon color='accent'>flight</mat-icon>
+                    </div>
+                    <div class="details my-3 mx-1">
+                        <p class="title">{{items.city}}</p>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="for">for</span> &#x20B9; {{items.price}}</p>
+                        </div>
+                        <div class="button">
+                            <a [routerLink]="['favourites', items.id]"><button class="me-2" color='primary' mat-raised-button (click)='showDeatil(items.id)'>Details</button></a>
+                            <button class="me-2" color='accent' mat-raised-button (click)='AddToMyBookings(items)'>Save</button>
+                            <button color='warn' mat-raised-button (click)='Delete(items)' >Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+  

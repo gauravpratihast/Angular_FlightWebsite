@@ -1,0 +1,46 @@
+.container{
+    h1{
+        font-weight: bolder;
+        font-size: 2rem;
+        color: #303F9F;
+    }
+    margin-top: 4rem;
+    margin-bottom: 15rem;
+    table.table-bordered{
+        border:1px solid #E91E63;
+        margin-top:20px;
+      }
+    table.table-bordered > thead > tr > th{
+        border:1px solid #E91E63;
+    }
+    table.table-bordered > tbody > tr > td{
+        border:1px solid #E91E63;
+    }
+    .table{
+        thead{
+            font-weight: bolder;
+            font-size: 1.2rem;
+            color: #E91E63;
+        }
+        tbody{
+            tr{
+                vertical-align: middle;
+                font-weight: bolder;
+                color: #303F9F;
+                font-size: 1rem;
+                img{
+                    height: 5rem;
+                    width: 5rem;
+    
+                }
+                .rotate{
+                    transform: rotateZ(90deg);
+                }
+                button{
+                    border-radius: 50%;
+                }
+            }
+            
+        }
+    }
+}

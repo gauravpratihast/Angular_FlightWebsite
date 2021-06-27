@@ -1,0 +1,128 @@
+.banner{
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../../assets/images/bannerImage.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+    color: white;
+    .selectJourney{
+        width: 35rem;
+        border-bottom: .2rem solid white;
+        padding-bottom: 1rem;
+    }
+    .journeyDetails{
+        margin-top: 1.5rem;
+        .col-sm-2{
+            padding: 0 !important;
+            label{
+                font-size: 1.1rem;
+                margin-bottom: .2rem;
+            }
+            input, select{
+                height: 3rem;
+                width: 14rem;
+                border-radius: 0 !important;
+                
+            }
+            input:focus, select:focus{
+                box-shadow: .1rem .1rem 1rem black !important;
+                transform: translateY(-.2rem);
+                border: none !important;
+            }
+            @media(max-width: 1100px){
+                input, select{
+                    height: 2.5rem;
+                    width: 10rem;
+                    font-size: .8rem;
+                }
+            }
+            @media(max-width: 800px){
+                input, select{
+                    height: 2rem;
+                    width: 8rem;
+                    font-size: .6rem;
+                }
+                label{
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+    button{
+        width: 12rem;
+        background: #303F9F;
+        color: white;
+        border: none;
+        &:active{
+            transform: translateY(.2rem);
+        }
+        &:focus{
+            box-shadow: none !important;
+        }
+    }
+}
+.expansions{
+    .checkIn{
+        mat-form-field{
+            width: 18rem;
+        }
+    }
+    mat-panel-title{
+        font-weight: bolder;
+        color: #303F9F;
+    }
+}
+.serviceArea{
+    // background: $white;
+    .text-center{
+        img{
+            height: 8rem;
+            width: 8rem;
+            margin-bottom: 1rem;
+            transition: background 1s;
+            border-radius: 50%;
+        }
+        &:hover{
+            // color: $white;
+            // background: $background;
+            box-shadow: .1rem .1rem 1rem black;
+        }
+        &:active{
+            transform: translateY(0.5rem);
+        }
+        h3{
+            font-weight: bolder;
+            color: #303F9F;
+        }
+    }
+}
+.map{
+    background: rgb(240, 235, 235);
+    h1{
+        font-weight: bolder;
+        font-size: 2rem;
+        color: #303F9F;
+    }
+    img{
+        width: 70%;
+        height: 30rem;
+        border-radius: 5rem;
+        &:hover{
+            transform: translateY(-.5rem);
+            box-shadow: .1rem .1rem 1rem black;
+        }
+    }
+}
+.subscribe{
+    background: #303F9F;
+    color: white;
+    h2{
+        font-size: 2rem;
+    }
+    .input-group{
+        width: 25rem;
+        button{
+            background: gray;
+        }
+    }
+}

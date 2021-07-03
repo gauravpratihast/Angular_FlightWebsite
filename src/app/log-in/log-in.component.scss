@@ -11,33 +11,21 @@
     background-size: cover;
     overflow: hidden;
     mat-card {
-        width: 30%;
+       width: 60%;
         margin: 5% auto 10%;
         border-radius: 8px;
-        mat-card-title{
-          color: #303F9F;
-        }
-        mat-form-field, mat-checkbox {
-            width: 80%;
-            display: block;
-            margin: auto;
-        }
-        mat-card-content {
-          margin-top: 20px;
-        }
-        .login-button {
-            margin-top: 20px;
-            display: block;
-            width: 80%;
-            margin: 20px auto;
+        .col-md-6{
+          .Toolbar{
+            position: relative;
+            bottom: 2rem;
+            box-shadow: .1rem .1rem 1rem black;
           }
-    }
+          form{
+            button{
+              margin: .8rem 0;
+            }
+          }
+       }
+     }
 }
-  
-  
-  
-  
-  
-  
-  
-  
+

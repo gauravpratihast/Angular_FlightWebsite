@@ -1,4 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,31 +10,37 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+              private snackBar: MatSnackBar,
+              private route: Router) { }
 
   ngOnInit(): void {
   }
 
   navList:any[]= [
     {
-      boolean:'True',
       routerLink: '',
       navItem: 'Home'
     },
     {
-      boolean:'False',
+      routerLink: 'admin',
+      navItem: 'Admin'
+    },
+    {
       routerLink: 'flights',
       navItem: 'Flights'
     },
     {
-      boolean:'False',
       routerLink: 'mybookings',
       navItem: 'Saved Flights'
     },
     {
-      boolean:'False',
       routerLink: 'login',
       navItem: 'LogIn'
+    },
+    {
+      routerLink: 'booking',
+      navItem: 'booking'
     },
     {
       routerLink: '',
@@ -40,21 +48,30 @@ export class HeaderComponent implements OnInit {
     }
   ]
 
-
-
   logout(navItem:string){
     if(navItem==='Log Out'){
-      // this.isLogIn = false;
       this.auth.isloggedIn = false;
+      this.auth.adminloggedIn = false;
+      this.route.navigate(['/login']);
+      this.snackBar.open('Log Out Sucessfully', '', {duration: 2000});
     }
   }
 
   isVisible(navItem:string){
     if(this.auth.isloggedIn){
-      if(navItem === 'LogIn'){
+      if(navItem === 'LogIn' || navItem === 'Admin'){
         return false;
       }
       return this.auth.isloggedIn;
+    }
+    else if(this.auth.adminloggedIn){
+      if(navItem === 'Admin'){
+        return true;
+      }
+      if(navItem === 'LogIn'){
+        return false;
+      }
+      return this.auth.adminloggedIn;
     }
     else{
       if(navItem === 'Home' || navItem === 'LogIn'){

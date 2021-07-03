@@ -1,0 +1,19 @@
+<h2 matidialog-title>Edit Flight Information</h2>
+<mat-dialog-content>
+    <form class="text-center">
+        <mat-form-field class="mx-2">
+            <mat-label>Destination</mat-label>
+            <input matInput value="{{city}}" name='flightcity' #flightcity>
+            <mat-icon matSuffix>flight</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="mx-2">
+            <mat-label>Price</mat-label>
+            <input matInput value="{{price}}" name='flightprice' #flightprice>
+            <mat-icon matSuffix>attach_money</mat-icon >
+        </mat-form-field>
+        <button mat-raised-button mat-dialog-close color='accent' (click)="saveChanges(flightcity.value, flightprice.value)">Save Changes</button>
+    </form>
+</mat-dialog-content>
+
+    
+

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FlightsDataService } from '../services/flights-data.service';
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-flight',
@@ -8,9 +9,12 @@ import { FlightsDataService } from '../services/flights-data.service';
 })
 export class AddFlightComponent implements OnInit {
 
-  constructor(private flightsData: FlightsDataService) { }
+  constructor(private flightsData: FlightsDataService,@Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  tabIndex = this.data.tab;
 
   ngOnInit(): void {
+    // console.log(this.tabIndex)
   }
 
   selectedImage: any;
@@ -37,7 +41,15 @@ export class AddFlightComponent implements OnInit {
 
       }
     ];
-    this.flightsData.RecommendationList.push(listFromInput[0]);
+    if(this.tabIndex === 0){
+      this.flightsData.RecommendationList.push(listFromInput[0]);
+    }
+    else if(this.tabIndex === 1){
+      this.flightsData.BestSellerList.push(listFromInput[0]);
+    }
+    else{
+      this.flightsData.FavouritesList.push(listFromInput[0]);
+    }
     listFromInput.splice(0, listFromInput.length);
     data.resetForm(); 
     this.showingImage = false;

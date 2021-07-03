@@ -1,0 +1,90 @@
+<form class="container my-5 px-3 pb-4"   #mgForm='ngForm'>
+    <!-- <h1 class="text-center">Booking Details</h1> -->
+    <mat-toolbar class="mb-2 mainToolbar" color='primary'>Booking Details</mat-toolbar>
+    <div class="row text-center">
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>From</mat-label>
+                <input type="text" matInput required name='from' ngModel #from='ngModel'>
+                <mat-error *ngIf='from.invalid'>It is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>To</mat-label>
+                <input type="text" matInput required name='to' ngModel #to='ngModel'>
+                <mat-error *ngIf='to.invalid'>It is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Departure Date</mat-label>
+                <input matInput [matDatepicker]="picker" required name='depdate' ngModel #depdate='ngModel'>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Return Date</mat-label>
+                <input matInput [matDatepicker]="pick" required name='retdate' ngModel #retdate='ngModel'>
+                <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
+                <mat-datepicker #pick></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Select Your Fare</mat-label>
+                <mat-select required name='fare' ngModel #fare='ngModel'>
+                  <mat-option value='oneway'>One Way</mat-option>
+                  <mat-option value='roundtrip'>Round Trip</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-label>Number of Passengers</mat-label>
+                <input type="number" matInput required name='passengers' ngModel #passengers='ngModel'>
+                <mat-error *ngIf='passengers.invalid'>Passengers required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <mat-form-field>
+                <mat-label>Any Messages</mat-label>
+                <input type="text" matInput name='msg' ngModel #msg='ngModel'>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="personaldetails mt-4">
+        <!-- <h2 class="text-center">Personal Details</h2> -->
+        <mat-toolbar class="mb-2 mainToolbar" color='accent'>Personal Details</mat-toolbar>
+        <div class="row text-center px-4">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Full Name</mat-label>
+                    <input type="text" matInput required name='name' ngModel #name='ngModel'>
+                    <mat-error *ngIf='name.invalid'>Name required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input type="tel" matInput required name='phone' ngModel #phone='ngModel'>
+                    <mat-error *ngIf='phone.invalid'>Phone required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Your Email</mat-label>
+                    <input type="email" matInput required name='email' ngModel #email='ngModel'>
+                    <mat-error *ngIf='email.invalid'>Email required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="button text-center my-3">
+        <button mat-raised-button class="me-4" color='accent' (click)='submit(mgForm)' [disabled]="!mgForm.valid">Submit</button>
+        <button mat-raised-button color='warn' (click)= 'mgForm.resetForm()'>Reset Form</button>
+    </div>
+</form>

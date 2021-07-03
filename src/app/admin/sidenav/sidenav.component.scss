@@ -1,0 +1,16 @@
+mat-nav-list{
+    .logo{
+        img{
+            height: 5rem;
+            width: 5rem;
+            border-radius: 50%;
+        }
+    }
+    a, h2{
+        color: white;
+    }
+    mat-divider{
+        // border-top-width: .1rem !important;
+        background: white;
+    }
+}

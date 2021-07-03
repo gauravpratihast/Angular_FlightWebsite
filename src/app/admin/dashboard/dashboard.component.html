@@ -1,0 +1,96 @@
+<mat-toolbar class="d-flex justify-content-between">
+    <span>Admin Dashboard</span>
+    <span>Admin</span>
+</mat-toolbar>
+<div class="container">
+    <div class="my-4 d-flex justify-content-between">
+        <div class="addButton">
+            <button mat-raised-button (click)='openDialog()'>Add new Flight</button>
+        </div>
+        <div class="searchicon">
+            <mat-form-field>
+                <input type="text" matInput [(ngModel)]='nameSearch' placeholder="search">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-tab-group class="mt-4 px-5" mat-align-tabs="center" #tabRef
+        (selectedTabChange)="logChange(tabRef.selectedIndex)">
+        <mat-tab label='Recommendations'>
+            <div class="row">
+                <div class="col-md-6 col-xs-12 d-flex my-3" *ngFor="let items of RecommendationList">
+                    <div class="image">
+                        <img routerLink="login" src="{{items.imageLink}}" alt="#">
+                    </div>
+                    <div class="flight d-flex align-items-center justify-content-center">
+                        <mat-icon color='accent'>flight</mat-icon>
+                    </div>
+                    <div class="details my-3 mx-1">
+                        <p class="title">{{items.city}}</p>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="for">for</span> &#x20B9; {{items.price}}</p>
+                        </div>
+                        <div class="button">
+                            <button class="me-2" color='warn' mat-raised-button (click)='Delete(items)'>Delete</button>
+                            <button mat-mini-fab color='primary' (click)='openEditor(items)'>
+                                <mat-icon matSuffix>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label='Best Seller'>
+            <div class="row">
+                <div class="col-md-6 col-xs-12 d-flex my-3" *ngFor="let items of BestSellerList">
+                    <div class="image">
+                        <img routerLink="login" src="{{items.imageLink}}" alt="#">
+                    </div>
+                    <div class="flight d-flex align-items-center justify-content-center">
+                        <mat-icon color='accent'>flight</mat-icon>
+                    </div>
+                    <div class="details my-3 mx-1">
+                        <p class="title">{{items.city}}</p>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="for">for</span> &#x20B9; {{items.price}}</p>
+                        </div>
+                        <div class="button">
+                            <button class="me-2" color='warn' mat-raised-button (click)='Delete(items)'>Delete</button>
+                            <button mat-mini-fab color='primary' (click)='openEditor(items)'>
+                                <mat-icon matSuffix>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label='Favourites'>
+            <div class="row">
+                <div class="col-md-6 col-xs-12 d-flex my-3" *ngFor="let items of FavouritesList">
+                    <div class="image">
+                        <img routerLink="login" src="{{items.imageLink}}" alt="#">
+                    </div>
+                    <div class="flight d-flex align-items-center justify-content-center">
+                        <mat-icon color='accent'>flight</mat-icon>
+                    </div>
+                    <div class="details my-3 mx-1">
+                        <p class="title">{{items.city}}</p>
+                        <hr>
+                        <div>
+                            <p class="price"><span class="for">for</span> &#x20B9; {{items.price}}</p>
+                        </div>
+                        <div class="button">
+                            <button class="me-2" color='warn' mat-raised-button (click)='Delete(items)'>Delete</button>
+                            <button mat-mini-fab color='primary' (click)='openEditor(items)'>
+                                <mat-icon matSuffix>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

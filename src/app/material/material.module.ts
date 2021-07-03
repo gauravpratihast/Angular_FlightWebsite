@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 
 import { MatInputModule } from "@angular/material/input";
@@ -9,17 +9,18 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatIconModule } from "@angular/material/icon";
-import { MatBadgeModule } from "@angular/material/badge";
+// import { MatBadgeModule } from "@angular/material/badge";
 import { MatSelectModule } from "@angular/material/select";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { MatMenuModule } from "@angular/material/menu";
+// import { MatMenuModule } from "@angular/material/menu";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatRadioModule } from "@angular/material/radio";
 
 
 const materialComponent = [
-  BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
@@ -28,13 +29,15 @@ const materialComponent = [
     MatCheckboxModule,
     MatIconModule,
     FormsModule,
-    MatBadgeModule,
+    // MatBadgeModule,
     MatSelectModule,
     MatExpansionModule,
-    MatMenuModule,
+    // MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    MatRadioModule
 ]
 
 @NgModule({

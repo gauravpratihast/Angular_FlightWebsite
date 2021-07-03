@@ -15,6 +15,15 @@ export class AuthService {
     }
   ]
 
+  admin: any[] = [
+    {
+      username: 'abc',
+      email: 'abc@1',
+      password: '12345678'
+    }
+  ]
+
   isloggedIn = false;
+  adminloggedIn = false;
 
 }

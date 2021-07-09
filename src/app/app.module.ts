@@ -30,7 +30,7 @@ import { Dialog1Component } from './dialog/dialog1/dialog1.component';
     AppRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
   ],
   providers: [],

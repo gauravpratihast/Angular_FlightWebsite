@@ -12,7 +12,6 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar"
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-
 @NgModule({
   declarations: [
     AdminComponent,
@@ -28,7 +27,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatListModule,
     MatDividerModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
   ]
 })
 export class AdminModule {
